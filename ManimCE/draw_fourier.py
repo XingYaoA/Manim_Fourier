@@ -1,8 +1,7 @@
 from manim import *
 import itertools as it
-from _functools import reduce
+from functools import reduce
 import operator as op
-import os
 
 #################################################
 #  __  __             _            _____ ______
@@ -74,6 +73,14 @@ class FourierCirclesScene(ZoomedScene):
                "velocity_factor": 1,
            },
            wait_before_start=None,
+           file_name=None,
+           svg_config={
+               'buff': 0,
+               'max_tip_length_to_length_ratio': 0.25,
+               'tip_length': 0.15,
+               'max_stroke_width_to_length_ratio': 8,
+               'stroke_width': 1.7,
+            },
            **kwargs,
    ):
        self.n_vectors = n_vectors
@@ -94,6 +101,8 @@ class FourierCirclesScene(ZoomedScene):
        self.zoom_position = zoom_position
        self.zoom_camera_to_full_screen_config = zoom_camera_to_full_screen_config
        self.wait_before_start = wait_before_start
+       self.file_name = file_name
+       self.svg_config = svg_config
 
        super().__init__(
            zoom_factor=zoom_factor,
@@ -1593,4 +1602,3 @@ class CustomAnimationExample(FourierCirclesScene):
 # x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-
 # x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-
 # x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-
-
